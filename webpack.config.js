@@ -8,8 +8,7 @@ const CleanCSS = require('clean-css')
 
 module.exports = {
     entry: {
-        main: ['./src/index.js'],
-        search: ['./src/search/index.js']
+        main: ['./src/index.js']
     },
     output: {
         filename: '[name].bundle.js',
@@ -79,12 +78,6 @@ module.exports = {
             template: 'ejs-loader!views/index.html',
             inject: true,
             chunks: ['main']
-        }),
-        new HtmlPlugin({
-            filename: 'search/index.html',
-            template: 'ejs-loader!views/index.html',
-            inject: true,
-            chunks: ['search']
         }),
         new CopyPlugin([{
             from: path.resolve(__dirname, 'static'),
