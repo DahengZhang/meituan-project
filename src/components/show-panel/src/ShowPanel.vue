@@ -40,17 +40,20 @@
                 }]"
                 class="picture-panel-el">
             </picture-panel>
+            <!-- <login-panel></login-panel> -->
         </div>
     </div>
 </template>
 
 <script>
 import PicturePanel from 'src/components/picture-panel'
+import LoginPanel from './LoginPanel'
 
 export default {
     name: 'ShowPanel',
     components: {
-        PicturePanel
+        PicturePanel,
+        LoginPanel
     }
 }
 </script>

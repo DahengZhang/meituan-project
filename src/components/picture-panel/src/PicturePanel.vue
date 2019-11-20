@@ -1,12 +1,14 @@
 <template>
     <div class="component picture-panel">
-        <ul class="picture-list">
-            <template v-for="(item, index) in pictures">
-                <li v-if="index === nowShow" :key="item.label" class="picture-item">
-                    <img :src="item.picture" class="picture-el" :alt="item.label">
-                </li>
-            </template>
-        </ul>
+        <div class="picture-list">
+            <transition>
+                <template v-for="(item, index) in pictures">
+                    <div v-if="index === nowShow" :key="item.label" class="picture-item">
+                        <img :src="item.picture" class="picture-el" :alt="item.label">
+                    </div>
+                </template>
+            </transition>
+        </div>
         <i @click="previous()" class="icon hand icon-left"></i>
         <i @click="next()" class="icon hand icon-right"></i>
     </div>
@@ -47,6 +49,15 @@ export default {
     box-sizing: border-box;
     background-color: rgba(0, 0, 0, .2);
     position: relative;
+
+    .v-enter-active, .v-leave-active {
+        transition: opacity .5s;
+    }
+
+    .v-enter, .v-leave-to {
+        opacity: 0;
+    }
+
     &::after {
         content: "";
         display: inline-block;
@@ -56,13 +67,13 @@ export default {
     }
     .picture-list {
         display: inline-block;
-        overflow: hidden;
         position: absolute;
         top: 0;
         left: 0;
         width: 100%;
         height: 100%;
         .picture-item {
+            position: absolute;
             width: 100%;
             height: 100%;
             .picture-el {
@@ -80,6 +91,7 @@ export default {
         opacity: .5;
         border-radius: 50%;
         overflow: hidden;
+        user-select: none;
         &.icon-right {
             left: 100%;
             margin-left: -94px;

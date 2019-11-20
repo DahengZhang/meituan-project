@@ -127,6 +127,7 @@ export default {
                 width: 400px;
                 height: 425px;
                 margin-left: 1px;
+                z-index: 1;
                 background-color: #ffffff;
             }
 
