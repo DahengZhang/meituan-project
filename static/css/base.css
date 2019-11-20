@@ -1,0 +1,21 @@
+* {
+    transition: all .2s;
+}
+
+body {
+    background-color: #F8F8F8;
+    font-family: '-apple-system','BlinkMacSystemFont','Roboto','Helvetica Neue','MIcrosoft YaHei',sans-serif !important;
+}
+
+.hand {
+    cursor: pointer;
+}
+
+.container {
+    width: 1200px;
+    margin: 0 auto;
+}
+
+input::placeholder {
+    color: #999999;
+}
